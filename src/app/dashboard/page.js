@@ -2,6 +2,9 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div>navbar</div>
+    <div>
+        <h1>dashboard</h1>
+        <h1>Hello world</h1>
+    </div>
   )
 }

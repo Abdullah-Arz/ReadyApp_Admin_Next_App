@@ -2,23 +2,16 @@ import React from 'react'
 
 function Login() {
   return (
-   <div class='py-36'>
+   <div class='py-32 px-48'>
     <h1>Login Now</h1>
    <section class="relative flex flex-wrap lg:h-screen lg:items-center">
     <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
-      <div class="mx-auto max-w-lg text-center">
-        <h1 class="text-2xl font-bold sm:text-3xl">Get started today!</h1>
-  
-        <p class="mt-4 text-gray-500">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
-          eaque error neque ipsa culpa autem, at itaque nostrum!
-        </p>
-      </div>
+    
   
       <form action="" class="mx-auto mb-0 mt-8 max-w-md space-y-4">
         <div>
           <label for="email" class="sr-only">Email</label>
-  
+          <span>Email</span>
           <div class="relative">
             <input
               type="email"
@@ -46,6 +39,7 @@ function Login() {
         </div>
   
         <div>
+          <span>Password</span>
           <label for="password" class="sr-only">Password</label>
   
           <div class="relative">
