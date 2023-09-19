@@ -1,10 +1,17 @@
 import React from 'react'
+import Sidebar from '../component/sidebar/page';
 
-export default function page() {
+function page() {
   return (
+    <div className="flex">
     <div>
-        <h1>dashboard</h1>
-        <h1>Hello world</h1>
+        <Sidebar />
+    </div>
+    <div>
+      <h1>Dashboard Page</h1>
+    </div>
     </div>
   )
 }
+
+export default page
