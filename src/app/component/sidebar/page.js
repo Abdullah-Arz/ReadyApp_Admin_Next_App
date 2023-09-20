@@ -18,6 +18,7 @@ import {
   TbScanEye,
   TbChevronRight
 } from "react-icons/tb";
+import { useRouter } from 'next/navigation'
 
 import { IconName } from "react-icons/lu";
 import { IoMenu } from "react-icons/io5";
@@ -27,8 +28,8 @@ function page() {
   const [state_OpenSubmenu, setState_OpenSubmenu] = useState(true);
 
   const Menus = [
-    { id: 1, title: "Dashboard", icon: <TbLayoutGrid /> },
-    { id: 2, title: "Drivers", icon: <TbUsersGroup /> },
+    { id: 1, title: "Dashboard", icon: <TbLayoutGrid />,link:'/dashboard' },
+    { id: 2, title: "Drivers", icon: <TbUsersGroup /> ,link:'/driver'},
     { id: 3, title: "Recruiters", icon: <TbUserSquareRounded /> },
     { id: 4, title: "Static Content", icon: <TbMessage2 /> },
     { id: 5, title: "Blogs", icon: <TbBrandBlogger /> },
@@ -52,6 +53,7 @@ function page() {
   const HandleSubMenu = () => {
     setState_OpenSubmenu(!state_OpenSubmenu);
   };
+  const router = useRouter()
 
   return (
     <div>
@@ -90,6 +92,7 @@ function page() {
             <>
               <li
                 key={item.id}
+                onClick={() => router.push(item.link)}
                 className="text-sm text-[#8b8b8d] flex items-center gap-x-4 p-2 mt-4 cursor-pointer 
                     hover:bg-white rounded-md duration-100"
               >
@@ -140,6 +143,8 @@ function page() {
                   {item.submenuitem.map((submenu, index) => (
                     <li
                       key={submenu.id}
+                      onClick={() => router.push(submenu.link)}
+                      href={submenu.link}
                       className="text-sm text-[#8b8b8d] flex items-center gap-x-4 p-2 px-5 cursor-pointer 
                     hover:bg-white rounded-md"
                     >
