@@ -24,8 +24,10 @@ import { IconName } from "react-icons/lu";
 import { IoMenu } from "react-icons/io5";
 
 function page() {
+
   const [state_Open, setState_Opne] = useState(false);
   const [state_OpenSubmenu, setState_OpenSubmenu] = useState(false);
+  const router = useRouter()
 
   const Menus = [
     { id: 1, title: "Dashboard", icon: <TbLayoutGrid />,link:'/dashboard' },
@@ -53,7 +55,11 @@ function page() {
   const HandleSubMenu = () => {
     setState_OpenSubmenu(!state_OpenSubmenu);
   };
-  const router = useRouter()
+
+  const HandleNavigate = (data) => {
+    router.push(data)
+  }
+  
 
   return (
     <div>
@@ -75,7 +81,7 @@ function page() {
             height={0}
             sizes="100vw"
             style={{ width: "35px", height: "35px" }}
-            className="cursor-pointer block float-left mr-2 h="
+            className="cursor-pointer block float-left mr-2"
           />
           <h1
             style={{ width: "250px" }}
@@ -92,7 +98,7 @@ function page() {
             <>
               <li
                 key={item.id}
-                onClick={() => router.push(item.link)}
+                onClick={()=>HandleNavigate(item.link)}
                 className="text-sm text-[#8b8b8d] flex items-center gap-x-4 p-2 mt-4 cursor-pointer 
                     hover:bg-white rounded-md duration-100"
               >
@@ -138,20 +144,20 @@ function page() {
                 )}
               </li>
 
-              {item.submenuitem && state_OpenSubmenu && state_Open && (
+              {item.submenuitem && state_OpenSubmenu && (
                 <ul>
                   {item.submenuitem.map((submenu, index) => (
                     <li
                       key={submenu.id}
-                      onClick={() => router.push(submenu.link)}
-                      href={submenu.link}
-                      className="text-sm text-[#8b8b8d] flex items-center gap-x-4 p-2 px-5 cursor-pointer 
-                    hover:bg-white rounded-md"
+                      // onClick={() => router.push(item.link)}
+                      // href={item.link}
+                      className={`text-sm text-[#8b8b8d] flex items-center gap-x-4 p-3 px-4 mt-2 ${!state_Open && "-ml-1"}  cursor-pointer 
+                    hover:bg-white rounded-md`}
                     >
                       <span className="text-1xl block float-left">
                         {submenu.icon}
                       </span>
-                      <span className="text-1xl font-normal block float-left">
+                      <span className={`text-1xl font-normal block float-left ${!state_Open && "hidden"}`}>
                         {submenu.title}
                       </span>
                     </li>
