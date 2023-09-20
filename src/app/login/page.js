@@ -1,105 +1,57 @@
+import Image from 'next/image'
 import React from 'react'
-
 function Login() {
   return (
-   <div class='py-32 px-48'>
-    <h1>Login Now</h1>
-   <section class="relative flex flex-wrap lg:h-screen lg:items-center">
-    <div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
-    
-  
-      <form action="" class="mx-auto mb-0 mt-8 max-w-md space-y-4">
-        <div>
-          <label for="email" class="sr-only">Email</label>
-          <span>Email</span>
-          <div class="relative">
-            <input
-              type="email"
-              class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-              placeholder="Enter email"
-            />
-  
-            <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                />
-              </svg>
-            </span>
+    <div className='bg-slate-50 px-56 pt-24 h-screen'>
+    <h1 class="text-gray-800 text-3xl font-semibold	  mb-5">Login Now</h1>
+
+    <div class="md:flex   bg-white    rounded-xl shadow-lg">
+      <div class="flex w-3/5 justify-center  items-center">
+        <form class="bg-white w-screen px-10 py-10 ">
+          <p class="text-sm font-normal text-gray-950 mb-1">Username <span className='text-red-600'>*</span></p>
+
+          <div class="flex items-center  text-gray-400 border-2 py-2 px-3 rounded-lg mb-4">
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800 " viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
+                clip-rule="evenodd" />
+            </svg>
+            <input class="pl-2 outline-none border-none" type="text" name="" id="" placeholder="Full name" />
           </div>
-        </div>
-  
-        <div>
-          <span>Password</span>
-          <label for="password" class="sr-only">Password</label>
-  
-          <div class="relative">
-            <input
-              type="password"
-              class="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm"
-              placeholder="Enter password"
-            />
-  
-            <span class="absolute inset-y-0 end-0 grid place-content-center px-4">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-4 w-4 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                />
-              </svg>
-            </span>
+          <p class="text-sm font-normal text-gray-950 mb-1">Password <span className='text-red-600'>*</span></p>
+
+          <div class="flex items-center text-gray-400 border-2 py-2 px-3 rounded-lg">
+
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800" viewBox="0 0 20 20"
+              fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                clip-rule="evenodd" />
+            </svg>
+            <input class="pl-2 outline-none border-none" type="text" name="" id="" placeholder="Password" />
+         
+            
           </div>
-        </div>
-  
-        <div class="flex items-center justify-between">
-          <p class="text-sm text-gray-500">
-            No account?
-            <a class="underline" href="">Sign up</a>
-          </p>
-  
-          <button
-            type="submit"
-            class="inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
-          >
-            Sign in
-          </button>
-        </div>
-      </form>
+        
+          <div class="flex justify-between mt-5">
+          <span class="text-base ml-2cursor-pointer"><input type='checkbox' class="default:ring-2 "/> Remember me</span>
+          <span class="text-base ml-2 text-blue-500 cursor-pointer ">Forgot Password ?</span>
+          </div>
+          <div class="flex justify-end">
+             <button type="submit" class="block w-1/5 	justify-between bg-neutral-800 mt-12 py-2 rounded-md text-white font-medium mb-2">Login</button>
+          </div>
+        
+        </form>
+      </div>
+      <div class="md:mb-0 w-2/5 ">
+      <img src="/readylogo.jpg"alt="Phone image" className='w-full h-full' /> 
+        
+      </div>
     </div>
-  
-    <div class="relative h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
-      <img
-        alt="Welcome"
-        src="https://images.unsplash.com/photo-1630450202872-e0829c9d6172?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-        class="absolute inset-0 h-full w-full object-cover"
-      />
-    </div>
-    </section>
-   </div> 
  
+    </div>
+
   )
 }
 
