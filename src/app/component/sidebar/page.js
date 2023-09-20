@@ -25,13 +25,13 @@ import { IoMenu } from "react-icons/io5";
 
 function page() {
   const [state_Open, setState_Opne] = useState(false);
-  const [state_OpenSubmenu, setState_OpenSubmenu] = useState(true);
+  const [state_OpenSubmenu, setState_OpenSubmenu] = useState(false);
 
   const Menus = [
     { id: 1, title: "Dashboard", icon: <TbLayoutGrid />,link:'/dashboard' },
     { id: 2, title: "Drivers", icon: <TbUsersGroup /> ,link:'/driver'},
     { id: 3, title: "Recruiters", icon: <TbUserSquareRounded /> },
-    { id: 4, title: "Static Content", icon: <TbMessage2 /> },
+    { id: 4, title: "Content", icon: <TbMessage2 /> },
     { id: 5, title: "Blogs", icon: <TbBrandBlogger /> },
     { id: 6, title: "Notifications", icon: <TbNotification /> },
     {
