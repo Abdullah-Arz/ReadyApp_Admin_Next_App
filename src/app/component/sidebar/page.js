@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import Image from "next/image";
 import { useState } from "react";
@@ -27,20 +27,21 @@ function page() {
   const [state_OpenSubmenu, setState_OpenSubmenu] = useState(true);
 
   const Menus = [
-    { title: "Dashboard", icon: <TbLayoutGrid /> },
-    { title: "Drivers", icon: <TbUsersGroup /> },
-    { title: "Recruiters", icon: <TbUserSquareRounded /> },
-    { title: "Static Content", icon: <TbMessage2 /> },
-    { title: "Blogs", icon: <TbBrandBlogger /> },
-    { title: "Notifications", icon: <TbNotification /> },
+    { id: 1, title: "Dashboard", icon: <TbLayoutGrid /> },
+    { id: 2, title: "Drivers", icon: <TbUsersGroup /> },
+    { id: 3, title: "Recruiters", icon: <TbUserSquareRounded /> },
+    { id: 4, title: "Static Content", icon: <TbMessage2 /> },
+    { id: 5, title: "Blogs", icon: <TbBrandBlogger /> },
+    { id: 6, title: "Notifications", icon: <TbNotification /> },
     {
+        id: 7,
       title: "Posts",
       icon: <TbAlignJustified />,
       submenuitem: [
-        { title: "Post List", icon: <TbClipboardList /> },
-        { title: "Reported Posts", icon: <TbFileReport /> },
-        { title: "Archive Posts", icon: <TbArchive /> },
-        { title: "Hidden Posts", icon: <TbScanEye /> },
+        { id: 1, title: "Post List", icon: <TbClipboardList /> },
+        { id: 2, title: "Reported Posts", icon: <TbFileReport /> },
+        { id: 3, title: "Archive Posts", icon: <TbArchive /> },
+        { id: 4, title: "Hidden Posts", icon: <TbScanEye /> },
       ],
     },
   ];
@@ -88,7 +89,7 @@ function page() {
           {Menus.map((item, index) => (
             <>
               <li
-                key={index}
+                key={item.id}
                 className="text-sm text-[#8b8b8d] flex items-center gap-x-4 p-2 mt-4 cursor-pointer 
                     hover:bg-white rounded-md duration-100"
               >
@@ -104,7 +105,7 @@ function page() {
                     </span>
                     <span
                       onClick={HandleSubMenu}
-                      style={{ width: "200px" }}
+                    //   style={{ width: "200px" }}
                       className={`text-sm font-medium flex-1 ${
                         !state_Open && "hidden"
                       }`}
@@ -123,7 +124,7 @@ function page() {
                       {item.icon}
                     </span>
                     <span
-                      style={{ width: "200px" }}
+                    //   style={{ width: "200px" }}
                       className={`text-sm font-medium flex-1 ${
                         !state_Open && "hidden"
                       }`}
@@ -138,7 +139,7 @@ function page() {
                 <ul>
                   {item.submenuitem.map((submenu, index) => (
                     <li
-                      key={index}
+                      key={submenu.id}
                       className="text-sm text-[#8b8b8d] flex items-center gap-x-4 p-2 px-5 cursor-pointer 
                     hover:bg-white rounded-md"
                     >
@@ -156,9 +157,6 @@ function page() {
           ))}
         </ul>
       </div>
-      {/* <div className="p-7">
-        <h1 className="text-2xl font-semibold">Home Page</h1>
-      </div> */}
     </div>
   );
 }
