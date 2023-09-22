@@ -31,7 +31,7 @@ function page() {
     { id: 1, title: "Dashboard", icon: <TbLayoutGrid />,link:'/dashboard' },
     { id: 2, title: "Drivers", icon: <TbUsersGroup /> ,link:'/driver'},
     { id: 3, title: "Recruiters", icon: <TbUserSquareRounded /> },
-    { id: 4, title: "Content", icon: <TbMessage2 /> },
+    { id: 4, title: "Content", icon: <TbMessage2 />,link:'/static_content' },
     { id: 5, title: "Blogs", icon: <TbBrandBlogger /> },
     { id: 6, title: "Notifications", icon: <TbNotification /> },
     {
