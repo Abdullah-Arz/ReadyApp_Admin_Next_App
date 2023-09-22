@@ -14,7 +14,8 @@ function page() {
     };
   return (
     <DashboardLayout>
-      <h1 className='text-2xl pl-1 pb-5 pt-2 font-inherit uppercase font-bold text-gray-500'>STATIC CONTENT</h1>
+        <div className='bg-slate-50'>
+        <h1 className='text-2xl pl-1 pb-5 pt-2 font-inherit uppercase font-bold text-gray-500'>STATIC CONTENT</h1>
       <div className='px-32 bg-slate-50'>
         <span aria-label="Select Content Type" className=' text-slate-950 font-semibold'>Select Content Type</span>
       <Select
@@ -35,6 +36,8 @@ function page() {
         </Select>
         <Card_form card_head={selected}/>
       </div>
+        </div>
+      
     </DashboardLayout>
   )
 }

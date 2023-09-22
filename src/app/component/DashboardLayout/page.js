@@ -8,13 +8,13 @@ import Navbar from '../navbar/page';
 
 function DashboardLayout({children}) {
   return (
-    <div className="flex bg-slate-50 ">
+    <div className="flex  ">
     <div className='bg-[#212529]'>
         <Sidebar />
     </div>
     <div className='flex-1'>
       <Navbar/>
-    <div className='p-4 ' >
+    <div className='p-4 bg-slate-50' >
       {children}
     </div>
     </div>

@@ -8,9 +8,9 @@ import {Input,Textarea} from "@nextui-org/react";
 
 export default function page({card_head}) {
   return (
-    <Card className="rounded-sm border shadow-md " >
+    <Card className="rounded-md border shadow-md " >
       <CardHeader className="flex gap-3 text-slate-50 bg-[#212529] ">
-      {card_head==="2"?'Privacy Policy':' Term and Condition'}
+      {card_head}
       </CardHeader>
       <Divider/>
       <CardBody>
@@ -22,8 +22,16 @@ export default function page({card_head}) {
           className="rounded-sm "
           
         />
+         <span className="mt-5 mb-1">Add Image</span>
+         <input type="file" class="block w-full text-sm text-slate-700 border-r-1 bg-[#f4f4f5d6] py-2
+            file:mr-4 file:py-2 file:px-4
+            file:rounded-full file:border-0
+            file:text-sm file:font-semibold
+            file:bg-violet-50 file:text-slate-800
+            hover:file:bg-violet-100
+            "/>
         <Textarea
-            label="Description"
+            label="Add Description"
             labelPlacement="outside"
             placeholder="Enter your description"
             minRows={8}
