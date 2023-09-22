@@ -258,7 +258,7 @@ const page = () => {
 
   return (
     <Table
-
+    className="overflow-x-scroll overflow-y-hidden"
       isCompact
       removeWrapper
       aria-label="Example table with custom cells, pagination and sorting"
