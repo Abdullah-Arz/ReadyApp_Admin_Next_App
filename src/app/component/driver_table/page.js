@@ -21,7 +21,7 @@ import {PlusIcon} from "../table_child_comp/plusicon";
 import {VerticalDotsIcon} from "../table_child_comp/verticaldotsicon";
 import {SearchIcon} from "../table_child_comp/searchicon";
 import {ChevronDownIcon} from "../table_child_comp/chevrondownicon";
-import {columns, users, statusOptions} from "../table_child_comp/data";
+// import {columns, users, statusOptions} from "../table_child_comp/data";
 import {capitalize} from "../table_child_comp/utils";
 
 const statusColorMap = {
@@ -31,7 +31,13 @@ const statusColorMap = {
 
 const INITIAL_VISIBLE_COLUMNS = ["name", "email", "phone", "status", "actions"];
 
-const page = () => {
+const page = (props) => {
+
+  console.log('data ---- ',props)
+  const {columns, users, statusOptions} = props;
+  console.log('data col ---- ',columns)
+  console.log('data users ---- ',users)
+  console.log('data statusOptions ---- ',statusOptions)
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
   const [visibleColumns, setVisibleColumns] = React.useState(new Set(INITIAL_VISIBLE_COLUMNS));
@@ -41,6 +47,7 @@ const page = () => {
     column: "age",
     direction: "ascending",
   });
+
   const [page, setPage] = React.useState(1);
 
   const Handle_Status_Active = (id,data) => {
@@ -244,6 +251,7 @@ const page = () => {
       td: [
         // changing the rows border radius
         // first
+        
         "group-data-[first=true]:first:before:rounded-none",
         "group-data-[first=true]:last:before:rounded-none",
         // middle
