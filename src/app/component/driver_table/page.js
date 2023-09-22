@@ -258,16 +258,17 @@ const page = () => {
 
   return (
     <Table
+
       isCompact
       removeWrapper
       aria-label="Example table with custom cells, pagination and sorting"
       bottomContent={bottomContent}
       bottomContentPlacement="outside"
-      // checkboxesProps={{
-      //   classNames: {
-      //     wrapper: "after:bg-foreground after:text-background text-background",
-      //   },
-      // }}
+      checkboxesProps={{
+        classNames: {
+          wrapper: "after:bg-foreground after:text-background text-background",
+        },
+      }}
       classNames={classNames}
       // selectedKeys={selectedKeys}
       // selectionMode="multiple" 
@@ -290,7 +291,7 @@ const page = () => {
       </TableHeader>
       <TableBody emptyContent={"No users found"} items={sortedItems}>
         {(item) => (
-          <TableRow key={item.id}>
+          <TableRow  key={item.id}>
             {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
           </TableRow>
         )}
