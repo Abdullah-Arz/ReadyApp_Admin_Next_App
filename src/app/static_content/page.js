@@ -16,7 +16,8 @@ function page() {
     };
   return (
     <DashboardLayout>
-      <h1 className='text-2xl pl-1 pb-5 pt-2 font-inherit uppercase font-bold text-gray-500'>STATIC CONTENT</h1>
+        <div className='bg-slate-50'>
+        <h1 className='text-2xl pl-1 pb-5 pt-2 font-inherit uppercase font-bold text-gray-500'>STATIC CONTENT</h1>
       <div className='px-32 bg-slate-50'>
         <span aria-label="Select Content Type" className=' text-slate-950 font-semibold'>Select Content Type</span>
       <Select
@@ -43,6 +44,7 @@ function page() {
       </div>
       <div className='rounded-ee-xl rounded-es-xl border shadow-md p-4 w-72 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto '>
         <Driver_Table columns={columns} users={users} statusOptions={statusOptions} />
+      </div>
       </div>
     </DashboardLayout>
   )

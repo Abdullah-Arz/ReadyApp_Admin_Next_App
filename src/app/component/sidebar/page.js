@@ -20,6 +20,7 @@ import { useRouter } from 'next/navigation'
 
 import { IconName } from "react-icons/lu";
 import { IoMenu } from "react-icons/io5";
+import { Tooltip } from "@nextui-org/react";
 
 function page() {
 
@@ -32,8 +33,8 @@ function page() {
     { id: 2, title: "Drivers", icon: <TbUsersGroup /> ,link:'/driver'},
     { id: 3, title: "Recruiters", icon: <TbUserSquareRounded />,link:'/recruiter' },
     { id: 4, title: "Content", icon: <TbMessage2 />,link:'/static_content' },
-    { id: 5, title: "Blogs", icon: <TbBrandBlogger /> },
-    { id: 6, title: "Notifications", icon: <TbNotification /> },
+    { id: 5, title: "Blogs", icon: <TbBrandBlogger /> ,link:'/blogs'},
+    { id: 6, title: "Notifications", icon: <TbNotification />,link:'/notification' },
     {
         id: 7,
       title: "Posts",
@@ -94,6 +95,12 @@ function page() {
         <ul className="pt-2">
           {Menus.map((item, index) => (
             <>
+             <Tooltip
+                key={item.link}
+                placement='right'
+                content={item.title}
+                color="default"
+              >
               <li
                 key={item.id}
                 onClick={()=>HandleNavigate(item.link)}
@@ -141,24 +148,31 @@ function page() {
                   </>
                 )}
               </li>
-
+              </Tooltip>
               {item.submenuitem && state_OpenSubmenu && (
                 <ul>
                   {item.submenuitem.map((submenu, index) => (
-                    <li
-                      key={submenu.id}
-                      // onClick={() => router.push(item.link)}
-                      // href={item.link}
-                      className={`text-sm text-[#8b8b8d] flex items-center gap-x-4 p-3 px-4 mt-2 ${!state_Open && "-ml-1"}  cursor-pointer 
-                    hover:bg-white rounded-md`}
-                    >
-                      <span className="text-1xl block float-left">
-                        {submenu.icon}
-                      </span>
-                      <span className={`text-1xl font-normal block float-left ${!state_Open && "hidden"}`}>
-                        {submenu.title}
-                      </span>
-                    </li>
+                     <Tooltip
+                     key={submenu.title}
+                     placement='right'
+                     content={submenu.title}
+                     color="default"
+                   >
+                      <li
+                        key={submenu.id}
+                        // onClick={() => router.push(item.link)}
+                        // href={item.link}
+                        className={`text-sm text-[#8b8b8d] flex items-center gap-x-4 p-3 px-4 mt-2 ${!state_Open && "-ml-1"}  cursor-pointer 
+                      hover:bg-white rounded-md`}
+                      >
+                        <span className="text-1xl block float-left">
+                          {submenu.icon}
+                        </span>
+                        <span className={`text-1xl font-normal block float-left ${!state_Open && "hidden"}`}>
+                          {submenu.title}
+                        </span>
+                      </li>
+                    </Tooltip>
                   ))}
                 </ul>
               )}
