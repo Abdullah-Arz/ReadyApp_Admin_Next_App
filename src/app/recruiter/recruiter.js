@@ -3,6 +3,7 @@ import React from "react";
 const columns = [
   {name: "ID", uid: "id", sortable: true},
   {name: "NAME", uid: "name", sortable: true},
+  {name: "COMPANY NAME", uid: "company", sortable: true},
   {name: "EMAIL", uid: "email", sortable: true},
   {name: "PHONE", uid: "phone", sortable: true},
   {name: "STATUS", uid: "status", sortable: true},
@@ -18,6 +19,7 @@ const users = [
   {
     id: 1,
     name: "Andy Reichert",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "tony.reichert@example.com",
@@ -25,6 +27,7 @@ const users = [
   {
     id: 2,
     name: "Abd Lang",
+    company: "xyz",
     status: "deactive",
     phone: "+92-111-111-111",
     email: "zoey.lang@example.com",
@@ -32,6 +35,7 @@ const users = [
   {
     id: 3,
     name: "Jane Fisher",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "jane.fisher@example.com",
@@ -39,6 +43,7 @@ const users = [
   {
     id: 4,
     name: "William Howard",
+    company: "xyz",
     status: "deactive",
     phone: "+92-111-111-111",
     email: "william.howard@example.com",
@@ -46,6 +51,7 @@ const users = [
   {
     id: 5,
     name: "Kristen Copper",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "kristen.cooper@example.com",
@@ -53,6 +59,7 @@ const users = [
   {
     id: 6,
     name: "Brian Kim",
+    company: "xyz",
     email: "brian.kim@example.com",
     status: "active",
     phone: "+92-111-111-111",
@@ -60,6 +67,7 @@ const users = [
   {
     id: 7,
     name: "Michael Hunt",
+    company: "xyz",
     status: "deactive",
     phone: "+92-111-111-111",
     email: "michael.hunt@example.com",
@@ -67,6 +75,7 @@ const users = [
   {
     id: 8,
     name: "Samantha Brooks",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "samantha.brooks@example.com",
@@ -74,6 +83,7 @@ const users = [
   {
     id: 9,
     name: "Frank Harrison",
+    company: "xyz",
     status: "deactive",
     phone: "+92-111-111-111",
     email: "frank.harrison@example.com",
@@ -81,6 +91,7 @@ const users = [
   {
     id: 10,
     name: "Emma Adams",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "emma.adams@example.com",
@@ -88,6 +99,7 @@ const users = [
   {
     id: 11,
     name: "Brandon Stevens",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "brandon.stevens@example.com",
@@ -95,6 +107,7 @@ const users = [
   {
     id: 12,
     name: "Megan Richards",
+    company: "xyz",
     status: "deactive",
     phone: "+92-111-111-111",
     email: "megan.richards@example.com",
@@ -102,6 +115,7 @@ const users = [
   {
     id: 13,
     name: "Oliver Scott",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "oliver.scott@example.com",
@@ -109,6 +123,7 @@ const users = [
   {
     id: 14,
     name: "Grace Allen",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "grace.allen@example.com",
@@ -116,6 +131,7 @@ const users = [
   {
     id: 15,
     name: "Noah Carter",
+    company: "xyz",
     status: "deactive",
     phone: "+92-111-111-111",
     email: "noah.carter@example.com",
@@ -123,6 +139,7 @@ const users = [
   {
     id: 16,
     name: "Ava Perez",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "ava.perez@example.com",
@@ -137,6 +154,7 @@ const users = [
   {
     id: 18,
     name: "Sophia Taylor",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "sophia.taylor@example.com",
@@ -151,6 +169,7 @@ const users = [
   {
     id: 20,
     name: "Mia Robinson",
+    company: "xyz",
     status: "active",
     phone: "+92-111-111-111",
     email: "mia.robinson@example.com",
