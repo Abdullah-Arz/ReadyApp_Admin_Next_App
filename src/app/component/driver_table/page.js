@@ -258,8 +258,9 @@ const page = () => {
 
   return (
     <Table
-    className="overflow-x-scroll overflow-y-hidden"
-      isCompact
+    className="overflow-x-scroll overflow-y-hidden xl:overflow-x-auto md:overflow-x-auto"
+    isStriped 
+      // isCompact
       removeWrapper
       aria-label="Example table with custom cells, pagination and sorting"
       bottomContent={bottomContent}
@@ -270,8 +271,8 @@ const page = () => {
         },
       }}
       classNames={classNames}
-      // selectedKeys={selectedKeys}
-      // selectionMode="multiple" 
+      selectedKeys={selectedKeys}
+      selectionMode="single" 
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"
