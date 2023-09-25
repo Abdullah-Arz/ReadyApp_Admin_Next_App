@@ -13,9 +13,9 @@ const user_dropdown = () => {
   return (
     <Dropdown>
       <DropdownTrigger>
-        <Button variant="none">
+        <span>
           <BsPersonCircle className="cursor-pointer text-3xl text-gray-500 mr-5" />
-        </Button>
+          </span>
       </DropdownTrigger>
       <DropdownMenu variant="faded" aria-label="Dropdown menu with icons">
         <DropdownItem
