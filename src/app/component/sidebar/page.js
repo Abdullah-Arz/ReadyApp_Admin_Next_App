@@ -161,7 +161,7 @@ function page() {
                    >
                       <li
                         key={submenu.id}
-                        onClick={() => router.push(item.link)}
+                        onClick={() => router.push(submenu.link)}
                         // href={item.link}
                         className={`text-sm text-[#8b8b8d] flex items-center gap-x-4 p-3 px-4 mt-2 ${!state_Open && "-ml-1"}  cursor-pointer 
                       hover:bg-white rounded-md`}
