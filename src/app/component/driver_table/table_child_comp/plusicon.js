@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 export const PlusIcon = ({size = 24, width, height, ...props}) => (

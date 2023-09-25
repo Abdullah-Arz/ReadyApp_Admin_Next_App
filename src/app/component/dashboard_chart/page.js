@@ -1,3 +1,4 @@
+"use client";
 
 import React, { Component } from "react";
 import Chart from "react-apexcharts";
@@ -29,6 +30,7 @@ class page extends Component {
       <div className="rounded-xl border shadow-md p-5">
         <div className="row">
           <div className="mixed-chart">
+          {(typeof window !== 'undefined') &&
             <Chart
               options={this.state.options}
               series={this.state.series}
@@ -36,6 +38,7 @@ class page extends Component {
               width="98%"
               height="400"
             />
+    }
           </div>
         </div>
       </div>

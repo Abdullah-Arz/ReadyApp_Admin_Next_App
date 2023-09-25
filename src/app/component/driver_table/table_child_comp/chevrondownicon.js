@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 export const ChevronDownIcon = ({strokeWidth = 1.5, ...otherProps}) => (
