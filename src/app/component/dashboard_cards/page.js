@@ -46,7 +46,7 @@ const page = () => {
     <div className="grid grid-cols-1 gap-4 xl:grid-cols-4 lg=grid-cols-4 md:grid-cols-4 sm:grid-cols-2">
     {
         card_data.map((item, index) => (
-            <Card className="max-w-[350px] shadow-md border 2xl:max-w-[1200px]  hover:shadow-xl ">
+            <Card key={index} className="max-w-[350px] shadow-md border 2xl:max-w-[1200px]  hover:shadow-xl ">
               <CardBody className="flex flex-row justify-around items-center p-4 2xl:p-10 xl:p-10 lg:p-10 md:p-10 sm:p-4">
                 <div className="flex-1">
                   <p className="uppercase text-gray-400 text-1md font-medium font-sans">

@@ -27,7 +27,7 @@ const users = [
     action: "active",
   },
   {
-    id: 1,
+    id: 2,
     name: "Andy Reichert",
     reported: "Reported",
     complain: "Abd",

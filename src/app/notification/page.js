@@ -11,7 +11,7 @@ function page() {
 
   return (
     <DashboardLayout>
-      <h1 className="text-2xl pl-1 pb-5 pt-2 font-inherit uppercase font-medium text-gray-500">
+      <h1 className="text-2xl pl-1 pb-5 pt-2 font-inherit uppercase text-gray-500">
         NOTIFICATION
       </h1>
       <div className="px-0 2lx:px-32 lx:px-32 lg:px-32 md:px-32 sm:px-32 bg-slate-50">
@@ -23,7 +23,7 @@ function page() {
             Notification List
           </p>
         </div>
-        <div className="rounded-ee-xl rounded-es-xl border shadow-md p-4 w-72 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto ">
+        <div className="bg-white rounded-ee-xl rounded-es-xl border shadow-md p-4 w-72 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto ">
           <Driver_Table
             title="name"
             title1="notification"

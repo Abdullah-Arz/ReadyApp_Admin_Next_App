@@ -18,7 +18,7 @@ import {
   TbScanEye,
   TbChevronRight
 } from "react-icons/tb";
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 import { IconName } from "react-icons/lu";
 import { IoMenu } from "react-icons/io5";
@@ -27,8 +27,10 @@ import { Tooltip } from "@nextui-org/react";
 function page() {
 
   const [state_Open, setState_Opne] = useState(false);
-  const [state_OpenSubmenu, setState_OpenSubmenu] = useState(false);
+  const [state_OpenSubmenu, setState_OpenSubmenu] = useState(true);
   const router = useRouter()
+  const currentRoute = usePathname();
+  console.log('Current page ----- ', currentRoute)
 
   const Menus = [
     { id: 1, title: "Dashboard", icon: <TbLayoutGrid />,link:'/dashboard' },
@@ -97,7 +99,7 @@ function page() {
 
         <ul className="pt-2">
           {Menus.map((item, index) => (
-            <>
+            <div key={index}>
              <Tooltip
                 key={item.link}
                 placement='right'
@@ -107,8 +109,7 @@ function page() {
               <li
                 key={item.id}
                 onClick={()=>HandleNavigate(item.link)}
-                className="text-sm text-[#8b8b8d] flex items-center gap-x-4 p-2 mt-4 cursor-pointer 
-                    hover:bg-white rounded-md duration-100"
+                className={` ${currentRoute === item.link ? "text-sm text-[#8b8b8d] flex items-center gap-x-4 p-2 mt-4 cursor-pointer bg-white rounded-md duration-100": "text-sm text-[#8b8b8d] flex items-center gap-x-4 p-2 mt-4 cursor-pointer hover:bg-white rounded-md duration-100"} `}
               >
                 {/* <span style={{width:"200px"}} className={`text-sm font-medium flex-1 ${!state_Open && "hidden"}`}>{item.title}</span> */}
                 {item.submenuitem ? (
@@ -165,8 +166,8 @@ function page() {
                         key={submenu.id}
                         onClick={() => router.push(submenu.link)}
                         // href={item.link}
-                        className={`text-sm text-[#8b8b8d] flex items-center gap-x-4 p-3 px-4 mt-2 ${!state_Open && "-ml-1"}  cursor-pointer 
-                      hover:bg-white rounded-md`}
+                        className={` ${currentRoute === submenu.link ? `text-sm text-[#8b8b8d] flex items-center gap-x-4 p-3 px-4 mt-2 ${!state_Open && "-ml-1"} cursor-pointer bg-white rounded-md` : `text-sm text-[#8b8b8d] flex items-center gap-x-4 p-3 px-4 mt-2 ${!state_Open && "-ml-1"} cursor-pointer hover:bg-white rounded-md`} `}
+                        // className={`text-sm text-[#8b8b8d] flex items-center gap-x-4 p-3 px-4 mt-2 ${!state_Open && "-ml-1"} cursor-pointer hover:bg-white rounded-md`}
                       >
                         <span className="text-1xl block float-left">
                           {submenu.icon}
@@ -179,7 +180,7 @@ function page() {
                   ))}
                 </ul>
               )}
-            </>
+            </div>
           ))}
         </ul>
       </div>
