@@ -23,7 +23,7 @@ export default function page({card_head}) {
           
         />
          <span className="mt-5 mb-1">Add Image</span>
-         <input type="file" class="block w-full text-sm text-slate-700 border-r-1 bg-[#f4f4f5d6] py-2
+         <input type="file" className="block w-full text-sm text-slate-700 border-r-1 bg-[#f4f4f5d6] py-2
             file:mr-4 file:py-2 file:px-4
             file:rounded-full file:border-0
             file:text-sm file:font-semibold

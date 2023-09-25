@@ -40,10 +40,10 @@ function page() {
       title: "Posts",
       icon: <TbAlignJustified />,
       submenuitem: [
-        { id: 1, title: "Post List", icon: <TbClipboardList /> },
-        { id: 2, title: "Reported Posts", icon: <TbFileReport /> },
-        { id: 3, title: "Archive Posts", icon: <TbArchive /> },
-        { id: 4, title: "Hidden Posts", icon: <TbScanEye /> },
+        { id: 1, title: "Post List", icon: <TbClipboardList />,link:'/postList' },
+        { id: 2, title: "Reported Posts", icon: <TbFileReport /> ,link:'/reportedPost'},
+        { id: 3, title: "Archive Posts", icon: <TbArchive /> ,link:'/archivePost'},
+        { id: 4, title: "Hidden Posts", icon: <TbScanEye /> ,link:'/hiddenPost'},
       ],
     },
   ];
