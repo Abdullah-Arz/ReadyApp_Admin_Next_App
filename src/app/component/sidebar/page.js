@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import { useState } from "react";
 import readyicon from "../../assets/ready-icon.png";
@@ -39,6 +41,7 @@ function page() {
         id: 7,
       title: "Posts",
       icon: <TbAlignJustified />,
+      link:'',
       submenuitem: [
         { id: 1, title: "Post List", icon: <TbClipboardList />,link:'/postList' },
         { id: 2, title: "Reported Posts", icon: <TbFileReport /> ,link:'/reportedPost'},

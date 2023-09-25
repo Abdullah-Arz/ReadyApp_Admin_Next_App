@@ -31,7 +31,7 @@ const statusColorMap = {
 
 const page = (props) => {
 
-  const INITIAL_VISIBLE_COLUMNS = [props.title, props.title1, props.title2, props.title3, props.title4];
+  const INITIAL_VISIBLE_COLUMNS = [props.title, props.title1, props.title2, props.title3, props.title4, props.title5,props.title6,props.title7,props.title8];
 
   console.log('data ---- ',props)
   const {columns, users, statusOptions} = props;
@@ -174,6 +174,34 @@ const page = (props) => {
             </Dropdown>
           </div>
         );
+        case props.title5:
+          return (
+            <div className="flex flex-col">
+              <p className="text-bold text-small capitalize">{cellValue}</p>
+              {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
+            </div>
+          );
+          case props.title6:
+          return (
+            <div className="flex flex-col">
+              <p className="text-bold text-small capitalize">{cellValue}</p>
+              {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
+            </div>
+          );
+          case props.title7:
+          return (
+            <div className="flex flex-col">
+              <p className="text-bold text-small capitalize">{cellValue}</p>
+              {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
+            </div>
+          );
+          case props.title8:
+          return (
+            <div className="flex flex-col">
+              <p className="text-bold text-small capitalize">{cellValue}</p>
+              {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
+            </div>
+          );
       default:
         return cellValue;
     }

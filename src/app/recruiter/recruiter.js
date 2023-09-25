@@ -1,18 +1,18 @@
 import React from "react";
 
 const columns = [
-  {name: "ID", uid: "id", sortable: true},
-//   {name: "NAME", uid: "name", sortable: true},
-  {name: "COMPANY NAME", uid: "name", sortable: true},
-  {name: "EMAIL", uid: "email", sortable: true},
-  {name: "PHONE", uid: "phone", sortable: true},
-  {name: "STATUS", uid: "status", sortable: true},
-  {name: "ACTIONS", uid: "actions"},
+  { name: "ID", uid: "id", sortable: true },
+  //   {name: "NAME", uid: "name", sortable: true},
+  { name: "COMPANY NAME", uid: "name", sortable: true },
+  { name: "EMAIL", uid: "email", sortable: true },
+  { name: "PHONE", uid: "phone", sortable: true },
+  { name: "STATUS", uid: "status", sortable: true },
+  { name: "ACTIONS", uid: "actions" },
 ];
 
 const statusOptions = [
-  {name: "Active", uid: "active"},
-  {name: "Deactive", uid: "deactive"},
+  { name: "Active", uid: "active" },
+  { name: "Deactive", uid: "deactive" },
 ];
 
 const users = [
@@ -176,4 +176,4 @@ const users = [
   },
 ];
 
-export {columns, users, statusOptions};
+export { columns, users, statusOptions };
