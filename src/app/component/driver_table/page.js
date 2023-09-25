@@ -29,9 +29,9 @@ const statusColorMap = {
   deactive: "danger"
 };
 
-const INITIAL_VISIBLE_COLUMNS = ["name", "email", "phone", "status", "actions"];
-
 const page = (props) => {
+
+  const INITIAL_VISIBLE_COLUMNS = [props.title, props.title1, props.title2, props.title3, props.title4];
 
   console.log('data ---- ',props)
   const {columns, users, statusOptions} = props;
@@ -49,6 +49,14 @@ const page = (props) => {
   });
 
   const [page, setPage] = React.useState(1);
+
+  const Handle_EditId = (id,data) => {
+    console.log('EditId ---- ',id ,data)
+  }
+
+  const Handle_DeleteId = (id,data) => {
+    console.log('DeleteId ---- ',id ,data)
+  }
 
   const Handle_Status_Active = (id,data) => {
     console.log('Activate ---- ',id ,data)
@@ -106,28 +114,28 @@ const page = (props) => {
     const cellValue = user[columnKey];
 
     switch (columnKey) {
-      case "name":
+      case props.title:
         return (
           <div className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>
             {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
           </div>
         );
-      case "email":
+      case props.title1:
         return (
           <div className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>
             {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
           </div>
         );
-        case "phone":
+        case props.title2:
         return (
           <div className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>
             {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
           </div>
         );
-      case "status":
+      case props.title3:
         return (
           <Chip
             className="capitalize border-none gap-1 text-default-600"
@@ -138,7 +146,7 @@ const page = (props) => {
             {cellValue}
           </Chip>
         );
-      case "actions":
+      case props.title4:
         return (
           <div className="relative flex justify-end items-center gap-2">
             <Dropdown className="bg-background border-1 border-default-200">
@@ -147,10 +155,22 @@ const page = (props) => {
                   <VerticalDotsIcon className="text-default-400" />
                 </Button>
               </DropdownTrigger>
-              <DropdownMenu>
-                <DropdownItem onClick={()=>{Handle_Status_Active(user.id,user.name)}}>Activate</DropdownItem>
-                <DropdownItem onClick={()=>{Handle_Status_Deactive(user.id,user.name)}}>Deactivate</DropdownItem>
-              </DropdownMenu>
+             
+                {props.type === true || props.type === "true" ? (
+                  <>
+                   <DropdownMenu>
+                  <DropdownItem onClick={()=>{Handle_EditId(user.id,user.name)}}>Edit</DropdownItem>
+                  <DropdownItem onClick={()=>{Handle_DeleteId(user.id,user.name)}}>Delete</DropdownItem>
+                  </DropdownMenu>
+                  </>
+                  ) : (
+                    <>
+                    <DropdownMenu>
+                    <DropdownItem onClick={()=>{Handle_Status_Active(user.id,user.name)}}>Active</DropdownItem>
+                <DropdownItem onClick={()=>{Handle_Status_Deactive(user.id,user.name)}}>Deactive</DropdownItem>
+                </DropdownMenu>
+                </>
+                  )}
             </Dropdown>
           </div>
         );
