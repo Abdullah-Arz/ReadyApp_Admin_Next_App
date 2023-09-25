@@ -8,6 +8,7 @@ import {
 } from "@nextui-org/react";
 import { BsPersonCircle } from "react-icons/bs";
 import { TbUserCircle, TbLogout2, TbEyeBolt } from "react-icons/tb";
+import Link from "next/link";
 
 const user_dropdown = () => {
   return (
@@ -28,7 +29,7 @@ const user_dropdown = () => {
           key="changepass"
           startContent={<TbEyeBolt className="text-2xl text-gray-500" />}
         >
-          Change Password
+         <Link href='/changePassword'>Change Password</Link> 
         </DropdownItem>
         <DropdownItem
           className="text-red-500 font-bold"
