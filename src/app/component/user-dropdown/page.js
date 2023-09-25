@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   Dropdown,
@@ -8,6 +9,7 @@ import {
 } from "@nextui-org/react";
 import { BsPersonCircle } from "react-icons/bs";
 import { TbUserCircle, TbLogout2, TbEyeBolt } from "react-icons/tb";
+import Link from "next/link";
 
 const user_dropdown = () => {
   return (
@@ -28,7 +30,7 @@ const user_dropdown = () => {
           key="changepass"
           startContent={<TbEyeBolt className="text-2xl text-gray-500" />}
         >
-          Change Password
+         <Link href='/changePassword'>Change Password</Link> 
         </DropdownItem>
         <DropdownItem
           className="text-red-500 font-bold"
@@ -36,7 +38,7 @@ const user_dropdown = () => {
           key="new"
           startContent={<TbLogout2 className="text-2xl text-red-500" />}
         >
-          <span className="font-semibold">Sign Out</span>
+          <Link className="font-semibold" href='/'>Sign Out</Link>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
