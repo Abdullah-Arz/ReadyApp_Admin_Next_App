@@ -2,12 +2,9 @@
 "use client"
 import React, { useState } from 'react'
 import DashboardLayout from '../component/DashboardLayout/page'
-import Notification_form from '../component/notification_form/page'
-import {Select,SelectItem} from "@nextui-org/react";
 
 
 function page() {
-    const [selected, setSelected] = useState("Term and Condition");
 
    
   return (
