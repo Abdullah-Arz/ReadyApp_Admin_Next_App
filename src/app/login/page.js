@@ -1,9 +1,11 @@
 "use client" 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
 function Login() {
   const [isLoading, setIsLoading] = useState(false)
+  const router=useRouter()
 
   async function sumbitData(event) {
     event.preventDefault()
@@ -11,10 +13,11 @@ function Login() {
     const name = event.target.username.value;
     const pass = event.target.password.value;
 
+
     try {
       
       console.log(name,pass);
-
+      router.push('/dashboard')
      
       event.target.reset();
 

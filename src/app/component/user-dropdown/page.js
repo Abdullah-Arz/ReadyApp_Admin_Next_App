@@ -37,7 +37,7 @@ const user_dropdown = () => {
           key="new"
           startContent={<TbLogout2 className="text-2xl text-red-500" />}
         >
-          <span className="font-semibold">Sign Out</span>
+          <Link className="font-semibold" href='/'>Sign Out</Link>
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
