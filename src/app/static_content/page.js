@@ -19,7 +19,7 @@ function page() {
         <h1 className="text-2xl pl-1 pb-5 pt-2 font-inherit uppercase font-bold text-gray-500">
           STATIC CONTENT
         </h1>
-        <div className="px-32 bg-slate-50">
+        <div className="px-0 2lx:px-32 lx:px-32 lg:px-32 md:px-32 sm:px-32 bg-slate-50">
           <span
             aria-label="Select Content Type"
             className=" text-slate-950 font-semibold"
@@ -51,24 +51,27 @@ function page() {
             </SelectItem>
           </Select>
           <Card_form card_head={selected} />
-        </div>
 
-        <div className="mt-4 border p-3 rounded-ss-xl rounded-se-xl bg-[#212529] w-72 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto ">
+          <div className="mt-4 border p-3 rounded-ss-xl rounded-se-xl bg-[#212529] w-72 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto ">
           <p className="text-white capitalize text-inherit text-md">
             content list
           </p>
         </div>
         <div className="rounded-ee-xl rounded-es-xl border shadow-md p-4 w-72 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto ">
           <Driver_Table
-            title="type"
+            title="name"
             title1="title"
             title2="content"
             title4="actions"
+            type="true"
             columns={columns}
             users={users}
             statusOptions={statusOptions}
           />
         </div>
+        </div>
+
+        
       </div>
     </DashboardLayout>
   );

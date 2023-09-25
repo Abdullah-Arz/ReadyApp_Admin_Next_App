@@ -50,6 +50,14 @@ const page = (props) => {
 
   const [page, setPage] = React.useState(1);
 
+  const Handle_EditId = (id,data) => {
+    console.log('EditId ---- ',id ,data)
+  }
+
+  const Handle_DeleteId = (id,data) => {
+    console.log('DeleteId ---- ',id ,data)
+  }
+
   const Handle_Status_Active = (id,data) => {
     console.log('Activate ---- ',id ,data)
   }
@@ -147,10 +155,22 @@ const page = (props) => {
                   <VerticalDotsIcon className="text-default-400" />
                 </Button>
               </DropdownTrigger>
-              <DropdownMenu>
-                <DropdownItem onClick={()=>{Handle_Status_Active(user.id,user.name)}}>Activate</DropdownItem>
-                <DropdownItem onClick={()=>{Handle_Status_Deactive(user.id,user.name)}}>Deactivate</DropdownItem>
-              </DropdownMenu>
+             
+                {props.type === true || props.type === "true" ? (
+                  <>
+                   <DropdownMenu>
+                  <DropdownItem onClick={()=>{Handle_EditId(user.id,user.name)}}>Edit</DropdownItem>
+                  <DropdownItem onClick={()=>{Handle_DeleteId(user.id,user.name)}}>Delete</DropdownItem>
+                  </DropdownMenu>
+                  </>
+                  ) : (
+                    <>
+                    <DropdownMenu>
+                    <DropdownItem onClick={()=>{Handle_Status_Active(user.id,user.name)}}>Active</DropdownItem>
+                <DropdownItem onClick={()=>{Handle_Status_Deactive(user.id,user.name)}}>Deactive</DropdownItem>
+                </DropdownMenu>
+                </>
+                  )}
             </Dropdown>
           </div>
         );

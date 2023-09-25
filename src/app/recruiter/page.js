@@ -18,7 +18,7 @@ function page() {
         </div>
         <div className="rounded-ee-xl rounded-es-xl border shadow-md p-4 w-72 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto ">
           <Driver_Table
-            title="company"
+            title="name"
             title1="email"
             title2="phone"
             title3="status"
