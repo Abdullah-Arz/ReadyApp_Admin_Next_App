@@ -8,7 +8,7 @@ import {Input,Textarea} from "@nextui-org/react";
 
 export default function page({card_head}) {
   return (
-    <Card className="rounded-md border shadow-md " >
+    <Card className="rounded-xl border shadow-md " >
       <CardHeader className="flex gap-3 text-slate-50 bg-[#212529] font-inherit text-md">
       {card_head==="2"?'Privacy Policy':' Term and Condition'}
       </CardHeader>

@@ -17,12 +17,12 @@ import {
   User,
   Pagination,
 } from "@nextui-org/react";
-import {PlusIcon} from "../table_child_comp/plusicon";
-import {VerticalDotsIcon} from "../table_child_comp/verticaldotsicon";
-import {SearchIcon} from "../table_child_comp/searchicon";
-import {ChevronDownIcon} from "../table_child_comp/chevrondownicon";
+import {PlusIcon} from "./table_child_comp/plusicon";
+import {VerticalDotsIcon} from "./table_child_comp/verticaldotsicon";
+import {SearchIcon} from "./table_child_comp/searchicon";
+import {ChevronDownIcon} from "./table_child_comp/chevrondownicon";
 // import {columns, users, statusOptions} from "../table_child_comp/data";
-import {capitalize} from "../table_child_comp/utils";
+import {capitalize} from "./table_child_comp/utils";
 
 const statusColorMap = {
   active: "success",
