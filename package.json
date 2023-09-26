@@ -11,6 +11,7 @@
   "dependencies": {
     "@canvasjs/react-charts": "^1.0.0",
     "@nextui-org/react": "^2.1.13",
+    "apexcharts": "^3.42.0",
     "autoprefixer": "10.4.15",
     "framer-motion": "^10.16.4",
     "next": "13.4.19",

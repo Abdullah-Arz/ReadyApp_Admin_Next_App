@@ -6,7 +6,7 @@ import {
   columns,
   users,
   statusOptions,
-} from "../component/driver_table/table_child_comp/data";
+} from "../component/table_child_comp/data";
 
 function page() {
   return (

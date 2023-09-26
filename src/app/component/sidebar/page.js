@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import readyicon from "../../assets/ready-icon.png";
+import readyicon from "../../../../public/ready-icon.png";
 import { BsChevronDown } from "react-icons/bs";
 import {
   TbAlignJustified,

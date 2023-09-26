@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 import {
   Table,
@@ -18,90 +18,105 @@ import {
   User,
   Pagination,
 } from "@nextui-org/react";
-import {PlusIcon} from "./table_child_comp/plusicon";
-import {VerticalDotsIcon} from "./table_child_comp/verticaldotsicon";
-import {SearchIcon} from "./table_child_comp/searchicon";
-import {ChevronDownIcon} from "./table_child_comp/chevrondownicon";
-// import {columns, users, statusOptions} from "../table_child_comp/data";
-import {capitalize} from "./table_child_comp/utils";
+
+
+
+import { VerticalDotsIcon } from "../table_child_comp/verticaldotsicon";
+import { SearchIcon } from "../table_child_comp/searchicon";
 
 const statusColorMap = {
   active: "success",
-  deactive: "danger"
+  deactive: "danger",
 };
 
 const page = (props) => {
+  const INITIAL_VISIBLE_COLUMNS = [
+    props.title,
+    props.title1,
+    props.title2,
+    props.title3,
+    props.title4,
+    props.title5,
+    props.title6,
+    props.title7,
+    props.title8,
+  ];
 
-  const INITIAL_VISIBLE_COLUMNS = [props.title, props.title1, props.title2, props.title3, props.title4, props.title5,props.title6,props.title7,props.title8];
-
-  console.log('data ---- ',props)
-  const {columns, users, statusOptions} = props;
-  console.log('data col ---- ',columns)
-  console.log('data users ---- ',users)
-  console.log('data statusOptions ---- ',statusOptions)
-  const [filterValue, setFilterValue] = React.useState("");
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
-  const [visibleColumns, setVisibleColumns] = React.useState(new Set(INITIAL_VISIBLE_COLUMNS));
-  const [statusFilter, setStatusFilter] = React.useState("all");
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [sortDescriptor, setSortDescriptor] = React.useState({
+  // console.log('data ---- ',props)
+  const { columns, users, statusOptions } = props;
+  // console.log('data col ---- ',columns)
+  // console.log('data users ---- ',users)
+  // console.log('data statusOptions ---- ',statusOptions)
+  const [filterValue, setFilterValue] = useState("");
+  const [selectedKeys, setSelectedKeys] = useState(new Set([]));
+  const [visibleColumns, setVisibleColumns] = useState(
+    new Set(INITIAL_VISIBLE_COLUMNS)
+  );
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [sortDescriptor, setSortDescriptor] = useState({
     column: "age",
     direction: "ascending",
   });
 
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = useState(1);
 
-  const Handle_EditId = (id,data) => {
-    console.log('EditId ---- ',id ,data)
-  }
+  const Handle_EditId = (id, data) => {
+    console.log("EditId ---- ", id, data);
+  };
 
-  const Handle_DeleteId = (id,data) => {
-    console.log('DeleteId ---- ',id ,data)
-  }
+  const Handle_DeleteId = (id, data) => {
+    console.log("DeleteId ---- ", id, data);
+  };
 
-  const Handle_Status_Active = (id,data) => {
-    console.log('Activate ---- ',id ,data)
-  }
+  const Handle_Status_Active = (id, data) => {
+    console.log("Activate ---- ", id, data);
+  };
 
-  const Handle_Status_Deactive = (id,data) => {
-    console.log('Deactivate ---- ',id ,data)
-  }
+  const Handle_Status_Deactive = (id, data) => {
+    console.log("Deactivate ---- ", id, data);
+  };
 
   const pages = Math.ceil(users.length / rowsPerPage);
 
   const hasSearchFilter = Boolean(filterValue);
 
-  const headerColumns = React.useMemo(() => {
+  const headerColumns = useMemo(() => {
     if (visibleColumns === "all") return columns;
 
-    return columns.filter((column) => Array.from(visibleColumns).includes(column.uid));
+    return columns.filter((column) =>
+      Array.from(visibleColumns).includes(column.uid)
+    );
   }, [visibleColumns]);
 
-  const filteredItems = React.useMemo(() => {
+  const filteredItems = useMemo(() => {
     let filteredUsers = [...users];
 
     if (hasSearchFilter) {
       filteredUsers = filteredUsers.filter((user) =>
-        user.name.toLowerCase().includes(filterValue.toLowerCase()),
+        user.name.toLowerCase().includes(filterValue.toLowerCase())
       );
     }
-    if (statusFilter !== "all" && Array.from(statusFilter).length !== statusOptions.length) {
+    if (
+      statusFilter !== "all" &&
+      Array.from(statusFilter).length !== statusOptions.length
+    ) {
       filteredUsers = filteredUsers.filter((user) =>
-        Array.from(statusFilter).includes(user.status),
+        Array.from(statusFilter).includes(user.status)
       );
     }
 
     return filteredUsers;
   }, [users, filterValue, statusFilter]);
 
-  const items = React.useMemo(() => {
+  const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
     return filteredItems.slice(start, end);
   }, [page, filteredItems, rowsPerPage]);
 
-  const sortedItems = React.useMemo(() => {
+  const sortedItems = useMemo(() => {
     return [...items].sort((a, b) => {
       const first = a[sortDescriptor.column];
       const second = b[sortDescriptor.column];
@@ -111,7 +126,7 @@ const page = (props) => {
     });
   }, [sortDescriptor, items]);
 
-  const renderCell = React.useCallback((user, columnKey) => {
+  const renderCell = useCallback((user, columnKey) => {
     const cellValue = user[columnKey];
 
     switch (columnKey) {
@@ -129,7 +144,7 @@ const page = (props) => {
             {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
           </div>
         );
-        case props.title2:
+      case props.title2:
         return (
           <div className="flex flex-col">
             <p className="text-bold text-small capitalize">{cellValue}</p>
@@ -156,65 +171,88 @@ const page = (props) => {
                   <VerticalDotsIcon className="text-default-400" />
                 </Button>
               </DropdownTrigger>
-             
-                {props.type === true || props.type === "true" ? (
-                  <>
-                   <DropdownMenu>
-                  <DropdownItem onClick={()=>{Handle_EditId(user.id,user.name)}}>Edit</DropdownItem>
-                  <DropdownItem onClick={()=>{Handle_DeleteId(user.id,user.name)}}>Delete</DropdownItem>
+
+              {props.type === true || props.type === "true" ? (
+                <>
+                  <DropdownMenu>
+                    <DropdownItem
+                      onClick={() => {
+                        Handle_EditId(user.id, user.name);
+                      }}
+                    >
+                      Edit
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        Handle_DeleteId(user.id, user.name);
+                      }}
+                    >
+                      Delete
+                    </DropdownItem>
                   </DropdownMenu>
-                  </>
-                  ) : (
-                    <>
-                    <DropdownMenu>
-                    <DropdownItem onClick={()=>{Handle_Status_Active(user.id,user.name)}}>Active</DropdownItem>
-                <DropdownItem onClick={()=>{Handle_Status_Deactive(user.id,user.name)}}>Deactive</DropdownItem>
-                </DropdownMenu>
                 </>
-                  )}
+              ) : (
+                <>
+                  <DropdownMenu>
+                    <DropdownItem
+                      onClick={() => {
+                        Handle_Status_Active(user.id, user.name);
+                      }}
+                    >
+                      Active
+                    </DropdownItem>
+                    <DropdownItem
+                      onClick={() => {
+                        Handle_Status_Deactive(user.id, user.name);
+                      }}
+                    >
+                      Deactive
+                    </DropdownItem>
+                  </DropdownMenu>
+                </>
+              )}
             </Dropdown>
           </div>
         );
-        case props.title5:
-          return (
-            <div className="flex flex-col">
-              <p className="text-bold text-small capitalize">{cellValue}</p>
-              {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
-            </div>
-          );
-          case props.title6:
-          return (
-            <div className="flex flex-col">
-              <p className="text-bold text-small capitalize">{cellValue}</p>
-              {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
-            </div>
-          );
-          case props.title7:
-          return (
-            <div className="flex flex-col">
-              <p className="text-bold text-small capitalize">{cellValue}</p>
-              {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
-            </div>
-          );
-          case props.title8:
-          return (
-            <div className="flex flex-col">
-              <p className="text-bold text-small capitalize">{cellValue}</p>
-              {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
-            </div>
-          );
+      case props.title5:
+        return (
+          <div className="flex flex-col">
+            <p className="text-bold text-small capitalize">{cellValue}</p>
+            {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
+          </div>
+        );
+      case props.title6:
+        return (
+          <div className="flex flex-col">
+            <p className="text-bold text-small capitalize">{cellValue}</p>
+            {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
+          </div>
+        );
+      case props.title7:
+        return (
+          <div className="flex flex-col">
+            <p className="text-bold text-small capitalize">{cellValue}</p>
+            {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
+          </div>
+        );
+      case props.title8:
+        return (
+          <div className="flex flex-col">
+            <p className="text-bold text-small capitalize">{cellValue}</p>
+            {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
+          </div>
+        );
       default:
         return cellValue;
     }
   }, []);
 
-  const onRowsPerPageChange = React.useCallback((e) => {
+  const onRowsPerPageChange = useCallback((e) => {
     setRowsPerPage(Number(e.target.value));
     setPage(1);
   }, []);
 
-
-  const onSearchChange = React.useCallback((value) => {
+  const onSearchChange = useCallback((value) => {
     if (value) {
       setFilterValue(value);
       setPage(1);
@@ -223,7 +261,7 @@ const page = (props) => {
     }
   }, []);
 
-  const topContent = React.useMemo(() => {
+  const topContent = useMemo(() => {
     return (
       <div className="flex flex-col gap-4">
         <div className="flex justify-between gap-3 items-end">
@@ -244,7 +282,9 @@ const page = (props) => {
           {/* <d00 */}
         </div>
         <div className="flex justify-between items-center">
-          <span className="text-default-400 text-small">Total {users.length} users</span>
+          <span className="text-default-400 text-small">
+            Total {users.length} users
+          </span>
           <label className="flex items-center text-default-400 text-small">
             Rows per page:
             <select
@@ -269,7 +309,7 @@ const page = (props) => {
     hasSearchFilter,
   ]);
 
-  const bottomContent = React.useMemo(() => {
+  const bottomContent = useMemo(() => {
     return (
       <div className="py-2 px-2 flex justify-between items-center">
         <Pagination
@@ -293,14 +333,14 @@ const page = (props) => {
     );
   }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
 
-  const classNames = React.useMemo(
+  const classNames = useMemo(
     () => ({
       wrapper: ["max-h-[382px]", "max-w-3xl"],
       th: ["bg-transparent", "text-default-500", "border-b", "border-divider"],
       td: [
         // changing the rows border radius
         // first
-        
+
         "group-data-[first=true]:first:before:rounded-none",
         "group-data-[first=true]:last:before:rounded-none",
         // middle
@@ -310,13 +350,13 @@ const page = (props) => {
         "group-data-[last=true]:last:before:rounded-none",
       ],
     }),
-    [],
+    []
   );
 
   return (
     <Table
-    className="overflow-x-scroll overflow-y-hidden xl:overflow-x-auto md:overflow-x-auto"
-    isStriped 
+      className="overflow-x-scroll overflow-y-hidden xl:overflow-x-auto md:overflow-x-auto"
+      isStriped
       // isCompact
       removeWrapper
       aria-label="Example table with custom cells, pagination and sorting"
@@ -329,7 +369,7 @@ const page = (props) => {
       }}
       classNames={classNames}
       selectedKeys={selectedKeys}
-      selectionMode="single" 
+      selectionMode="single"
       sortDescriptor={sortDescriptor}
       topContent={topContent}
       topContentPlacement="outside"
@@ -349,13 +389,15 @@ const page = (props) => {
       </TableHeader>
       <TableBody emptyContent={"No users found"} items={sortedItems}>
         {(item) => (
-          <TableRow  key={item.id}>
-            {(columnKey) => <TableCell>{renderCell(item, columnKey)}</TableCell>}
+          <TableRow key={item.id}>
+            {(columnKey) => (
+              <TableCell>{renderCell(item, columnKey)}</TableCell>
+            )}
           </TableRow>
         )}
       </TableBody>
     </Table>
   );
-}
+};
 
-export default page
+export default page;

@@ -1,4 +1,5 @@
-"use client"    
+"use client"  
+
 import React from "react";
 
 import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image,Button} from "@nextui-org/react";
@@ -20,7 +21,6 @@ export default function page({card_head}) {
           label="Title"
           placeholder="Enter your Title"
           className="rounded-sm "
-          
         />
          <span className="mt-5 mb-1">Add Image</span>
          <input type="file" className="block w-full text-sm text-slate-700 border-r-1 bg-[#f4f4f5d6] py-2
