@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import DashboardLayout from "../component/DashboardLayout/page";
 import Notification_form from "../component/notification_form/page";
 import { Select, SelectItem } from "@nextui-org/react";
-import Driver_Table from "../component/driver_table/page";
+import Hidden_Table from "../component/hidden_table/page";
 import { columns, users, statusOptions } from "./hidden_data";
 
 function page() {
@@ -21,18 +21,7 @@ function page() {
           </p>
         </div>
         <div className="bg-white rounded-ee-xl rounded-es-xl border shadow-md p-4 w-72 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto ">
-          <Driver_Table
-            title="name"
-            title1="reported"
-            title2="complain"
-            title3="status"
-            title4="actions"
-            title5="created"
-            type="true"
-            columns={columns}
-            users={users}
-            statusOptions={statusOptions}
-          />
+          <Hidden_Table />
         </div>
       </div>
     </DashboardLayout>

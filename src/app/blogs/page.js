@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import DashboardLayout from '../component/DashboardLayout/page'
 import Blogs_form from '../component/blogs_form/page'
 import {Select,SelectItem} from "@nextui-org/react";
-import Driver_Table from "../component/driver_table/page";
+import Blog_Table from "../component/blog_table/page";
 import { columns, users, statusOptions } from "./blog_data";
 
 function page() {
@@ -20,16 +20,7 @@ function page() {
           </p>
         </div>
         <div className="bg-white rounded-ee-xl rounded-es-xl border shadow-md p-4 w-72 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto ">
-          <Driver_Table
-            title="name"
-            title1="description"
-            title2="created"
-            title4="actions"
-            type="true"
-            columns={columns}
-            users={users}
-            statusOptions={statusOptions}
-          />
+          <Blog_Table />
         </div>
       </div>
       
