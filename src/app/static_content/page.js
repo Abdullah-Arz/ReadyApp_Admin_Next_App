@@ -6,11 +6,11 @@ import { Select, SelectItem } from "@nextui-org/react";
 import Static_Content_Table from "../component/static_content_table/page";
 
 function page() {
-  const [selected, setSelected] = useState("Term and Condition");
+  const [selected, setSelected] = useState(1);
 
   const handleChange = (selectedOption) => {
     setSelected(selectedOption.target.value);
-    console.log(`Option selected:`, selectedOption.target);
+    console.log(`Option selected:`, selectedOption.target.value);
   };
   return (
     <DashboardLayout>
@@ -40,7 +40,7 @@ function page() {
             >
               Term and Condition
             </SelectItem>
-            <SelectItem
+             <SelectItem
               key="2"
               name="Privacy Policy"
               value="Privacy_Policy"
@@ -48,6 +48,8 @@ function page() {
             >
               Privacy Policy
             </SelectItem>
+       
+           
           </Select>
           <Card_form card_head={selected} />
 

@@ -1,28 +1,47 @@
 "use client" 
+import axios from 'axios'
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 function forgetPassword() {
   const [isLoading, setIsLoading] = useState(false)
+  const router=useRouter()
+  const api = process.env.NEXT_PUBLIC_LOCAL_API;
 
   async function sumbitData(event) {
     event.preventDefault()
     setIsLoading(true) // Set loading to true when the request starts
-    const name = event.target.username.value;
-    const pass = event.target.password.value;
+    const email = event.target.email.value;
 
-    try {
-      
-      console.log(name,pass);
-
-     
-      event.target.reset();
-
-    } catch (error) {
-      // Handle error if necessary
-      console.error(error)
-    } finally {
-      setIsLoading(false) // Set loading to false when the request completes
+    const body = {
+      email : email
     }
+
+    router.push('/')
+
+    // axios.post(`${api}/auth/password_reset/`,body)
+    // .then((res)=>{
+    //   console.log("Forget Pass APi ---",res.data)
+
+    //   res.data.Status === false ? (
+    //     toast.success(res.data.error),
+    //     setIsLoading(false)
+        
+    //   ) : (
+    //     toast.success(res.data.message),
+    //     router.push('/'),
+    //     event.target.reset(),
+    //     setIsLoading(false),
+    //     sessionStorage.setItem('Token',res.data.access
+    //     )
+    //   )
+      
+    // }).catch((err)=>{
+    //   console.log("Login Successfully ---",err)
+    //   setIsLoading(false)
+    // })
+
   }
   return (
     <div className='bg-slate-50 px-56 sm:pt-24  md:pt-36  lg:pt-36 xl:pt-36 2xl:pt-36 h-screen'>

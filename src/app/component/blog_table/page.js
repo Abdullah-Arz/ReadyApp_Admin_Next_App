@@ -18,19 +18,25 @@ import {
   Chip,
   User,
   Pagination,
+  useDisclosure,
+  Avatar,
 } from "@nextui-org/react";
 import { VerticalDotsIcon } from "./verticaldotsicon";
 import { SearchIcon } from "./searchicon";
 import { columns, users, statusOptions } from "./data";
+import Modal from '../modal_editblog/page'
 
 const statusColorMap = {
   active: "success",
   deactive: "danger",
 };
 
-const INITIAL_VISIBLE_COLUMNS = ["title", "description", "created", "actions"];
+const INITIAL_VISIBLE_COLUMNS = ["title", "image", "description", "created", "actions"];
 
 export default function page() {
+
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
   const [filterValue, setFilterValue] = React.useState("");
   const [selectedKeys, setSelectedKeys] = React.useState(new Set([]));
   const [visibleColumns, setVisibleColumns] = React.useState(
@@ -44,12 +50,12 @@ export default function page() {
   });
   const [page, setPage] = React.useState(1);
 
-  const Handle_Active = (id, name) => {
-    console.log('Active ----- ',id, name)
+  const Handle_Edit = (id, name) => {
+    onOpen();
   }
 
-  const Handle_Deactive = (id, name) => {
-    console.log('Deactive ----- ',id, name)
+  const Handle_Delete = (id, name) => {
+    console.log('Deactive ----- ',id, name) 
   }
 
   const pages = Math.ceil(users.length / rowsPerPage);
@@ -126,15 +132,11 @@ export default function page() {
             {/* <p className="text-bold text-tiny capitalize text-default-500">{user.team}</p> */}
           </div>
         );
+        case "image":
         return (
-          <Chip
-            className="capitalize border-none gap-1 text-default-600"
-            color={statusColorMap[user.status]}
-            size="sm"
-            variant="dot"
-          >
-            {cellValue}
-          </Chip>
+          <Avatar src={cellValue}>
+            
+          </Avatar>
         );
       case "actions":
         return (
@@ -146,8 +148,8 @@ export default function page() {
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
-                <DropdownItem onClick={()=>{Handle_Active(user.id)}}>Edit</DropdownItem>
-                <DropdownItem onClick={()=>{Handle_Deactive(user.id)}}>Delete</DropdownItem>
+                <DropdownItem onClick={()=>{Handle_Edit(user.id)}}>Edit</DropdownItem>
+                <DropdownItem onClick={()=>{Handle_Delete(user.id)}}>Delete</DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </div>
@@ -263,6 +265,9 @@ export default function page() {
   );
 
   return (
+    <>
+    <Modal isOpen={isOpen} onOpenChange={onOpenChange} />
+
     <Table
       className="overflow-x-scroll overflow-y-hidden xl:overflow-x-auto md:overflow-x-auto"
       isStriped
@@ -306,5 +311,7 @@ export default function page() {
         )}
       </TableBody>
     </Table>
+    </>
+    
   );
 }

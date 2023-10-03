@@ -1,33 +1,59 @@
 "use client" 
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 
+import axios from 'axios'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { toast } from 'react-toastify'
+
+
+
 function Login() {
+  
   const [isLoading, setIsLoading] = useState(false)
   const router=useRouter()
+  const api = process.env.NEXT_PUBLIC_LOCAL_API;
+  
+  // console.log('API ----- ',api)
 
   async function sumbitData(event) {
     event.preventDefault()
     setIsLoading(true) // Set loading to true when the request starts
     const name = event.target.username.value;
     const pass = event.target.password.value;
-
-
-    try {
-      
-      console.log(name,pass);
-      router.push('/dashboard')
-     
-      event.target.reset();
-
-    } catch (error) {
-      // Handle error if necessary
-      console.error(error)
-    } finally {
-      setIsLoading(false) // Set loading to false when the request completes
+    
+    // Fetch data from external API
+    const body={
+      username:name,
+      password: pass
     }
+    router.push('/dashboard')
+    
+    // axios.post(`${api}/auth/signin/`,body)
+    // .then((res)=>{
+    //   console.log("Login Successfully ---",res.data)
+
+    //   res.data.status === false ? (
+    //     toast.success(res.data.error),
+    //     setIsLoading(false)
+        
+    //   ) : (
+    //     toast.success('Login Successfully'),
+    //     router.push('/dashboard'),
+    //     event.target.reset(),
+    //     setIsLoading(false),
+    //     sessionStorage.setItem('Token',res.data.access
+    //     )
+    //   )
+      
+    // }).catch((err)=>{
+    //   console.log("Login Successfully ---",err)
+    //   setIsLoading(false)
+    // })
+   
+    // Pass data to the page via props
   }
+
   return (
     <div className='bg-slate-50 px-56 sm:pt-24  md:pt-24  lg:pt-10 xl:pt-24 2xl:pt-24 h-screen'>
       {/* sm:text-red-400 md:text-green-600 lg:text-blue-800 xl:text-pink-900 2xl:text-purple-950 */}
